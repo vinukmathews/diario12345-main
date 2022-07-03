@@ -175,6 +175,8 @@ app.get("/email/:id", authenticateJWT, async function (req, res, next) {
   //     console.log(result[0].email);
   //   }
   // });
+
+  
 });
 app.get("/settings", function (req, res, next) {
   res.render("settings");
@@ -285,6 +287,8 @@ app.get("/main", authenticateJWT, (req, res) => {
       async function dataretreive() {
         for (var i = 0; i < results.length; i++) {
           console.log(results[i].crn);
+
+        
           promiseArray.push(
             new Promise((resolve, reject) => {
               unirest(
@@ -296,7 +300,7 @@ app.get("/main", authenticateJWT, (req, res) => {
                 })
                 .end(function (res1) {
                   data = JSON.parse(res1.raw_body);
-                  console.log(data);
+                  // console.log(data);
 
                   var dataset = {
                     next_due: data.accounts.next_due,
@@ -312,7 +316,7 @@ app.get("/main", authenticateJWT, (req, res) => {
                     confirmation_statement_overdue: data.confirmation_statement.overdue,
 
                   };
-                  console.log(dataset);
+                  // console.log(dataset);
                   data1.push(dataset);
                   resolve();
                 });
@@ -323,10 +327,15 @@ app.get("/main", authenticateJWT, (req, res) => {
         await Promise.all(promiseArray);
 
         res.render("product_view", {
-          data1,
+          data1, no :results.length
         });
       }
-      console.log(data1);
+      // console.log(data1);
+      var no = data1.length
+      console.log(no);
+
+
+
       dataretreive();
     } else {
       res.send("No data found");
@@ -334,7 +343,7 @@ app.get("/main", authenticateJWT, (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || 3000, function () {
+app.listen(3001, function () {
   run().catch(console.dir);
   console.log("port activated");
 });
