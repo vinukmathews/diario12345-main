@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+    /* Style inputs with type="text", select elements and textareas */
+    input[type=text],
+    select,
+    textarea {
+      width: 100%;
+      /* Full width */
+      padding: 12px;
+      /* Some padding */
+      border: 1px solid #ccc;
+      /* Gray border */
+      border-radius: 4px;
+      /* Rounded borders */
+      box-sizing: border-box;
+      /* Make sure that padding and width stays in place */
+      margin-top: 6px;
+      /* Add a top margin */
+      margin-bottom: 16px;
+      /* Bottom margin */
+      resize: vertical
+        /* Allow the user to vertically resize the textarea (not horizontally) */
+    }
+
+    /* Style the submit button with a specific background color etc */
+    input[type=submit] {
+      background-color: #04AA6D;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* When moving the mouse over the submit button, add a darker green color */
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    /* Add a background color and some padding around the form */
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      margin-top: 8%;
+      margin-left: 20%;
+      margin-right: 20%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+    <div class="container">
+      <button class="btn btn-success" onclick="location.href ='/main'" data-toggle="modal"
+        data-target="#myModalAdd">Main</button>
+      <p></p>
+      <p></p>
+      <form action='/emailed' method="get">
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Your name.." value={{email}}>
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject" value="Company accounts">
+
+
+        <label for="content">Content</label>
+
+
+        <textarea id="content" name="content" value="vinu" placeholder="Write something.." style="height:200px">
+          
+Hi Sir,
+  
+{{data2.coname}} accounts for the period {{data2.period_start_on}} to {{data2.next_made_up_to}}
+
+This is to remind about the information that we need to complete your company accounts and tax return. Please provide us with the necessary records and documents to ensure that we have enough time to meet the deadline. Company accounts are due on {{data2.next_due}} There is a penalty of upto £1,500 if failed to submit before deadline. 
+
+We require the following;
+
+1)    Company bank account statements from {{data2.period_start_on}} to {{data2.next_made_up_to}}
+2)    Cheque books if any for the period from {{data2.period_start_on}} to {{data2.next_made_up_to}}
+3)    Sales and  purchase invoices from {{data2.period_start_on}} to {{data2.next_made_up_to}}
+4)    Expenses bills and invoices from {{data2.period_start_on}} to {{data2.next_made_up_to}}
+5)    List of debtors and creditors as at {{data2.next_made_up_to}}
+6)    And any other information which would enable us to prepare accounts in a more accurate manner.
+
+If you require any assistance please do not hesitate to call us and I look forward to hearing from you soon.
+
+Kind regards,
+
+David and Brown / Castlefords Accountants
+</textarea>
+
+        <input type="submit" value="Sent email">
+
+
+
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>

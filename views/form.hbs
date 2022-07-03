@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+    .container {
+      padding: 16px;
+      background-color: white;
+      margin-left: 10%;
+      margin-top: 2%;
+      margin-right: 30%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <button class="btn btn-success" onclick="location.href ='/main'" data-toggle="modal"
+      data-target="#myModalAdd">Main</button>
+    <form action="/saveaction" method="GET">
+      <p></p>
+      <p></p>
+      <p></p>
+      <p>Add new company</p> <input type="text" name="number" placeholder="CRN">
+      <input type="text" name="email" placeholder="Email">
+      <button type="submit">Save</button>
+    </form>
+  </div>
+
+</body>
+
+</html>
