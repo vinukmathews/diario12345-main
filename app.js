@@ -327,7 +327,7 @@ app.get("/main", authenticateJWT, (req, res) => {
         await Promise.all(promiseArray);
 
         res.render("product_view", {
-          data1, no :results.length
+          data1, no :count,
         });
       }
       // console.log(data1);
