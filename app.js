@@ -149,7 +149,7 @@ app.get("/email/:id", authenticateJWT, async function (req, res, next) {
 
 
       //  var next_due= data.accounts.next_due
-      var next_due1 = data.accounts.next_due
+      // var next_due1 = data.accounts.next_due
       var data2 = {
 
         next_due: data.accounts.next_due,
