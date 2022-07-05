@@ -343,7 +343,7 @@ app.get("/main", authenticateJWT, (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || 3001, function () {
+app.listen(process.env.PORT || 3000, function () {
   run().catch(console.dir);
   console.log("port activated");
 });
