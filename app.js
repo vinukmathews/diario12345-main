@@ -59,7 +59,7 @@ app.get("/logined", async function (req, res, next) {
     //     token
     // });
     res.cookie("jwt", token);
-    res.send();
+    res.redirect("/main");
 
 
   }
@@ -176,7 +176,7 @@ app.get("/email/:id", authenticateJWT, async function (req, res, next) {
   //   }
   // });
 
-  
+
 });
 app.get("/settings", function (req, res, next) {
   res.render("settings");
@@ -273,10 +273,10 @@ app.get("/saveaction", authenticateJWT, async function (req, res) {
   res.redirect("/main");
 });
 
-app.get("/main", authenticateJWT, (req, res) => {
+app.get("/main", authenticateJWT, async (req, res) => {
   console.log(decoded);
 
-  database.collection(decoded).find({}).toArray(function (err, results) {
+  await database.collection(decoded).find({}).toArray(function (err, results) {
     if (err) {
     }
     count = results.length;
@@ -288,7 +288,7 @@ app.get("/main", authenticateJWT, (req, res) => {
         for (var i = 0; i < results.length; i++) {
           console.log(results[i].crn);
 
-        
+
           promiseArray.push(
             new Promise((resolve, reject) => {
               unirest(
@@ -327,7 +327,7 @@ app.get("/main", authenticateJWT, (req, res) => {
         await Promise.all(promiseArray);
 
         res.render("product_view", {
-          data1, no :count,
+          data1, no: count,
         });
       }
       // console.log(data1);
