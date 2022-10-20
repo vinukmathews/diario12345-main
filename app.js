@@ -152,17 +152,15 @@ app.get("/email/:id", authenticateJWT, async function (req, res, next) {
       // var next_due1 = data.accounts.next_due
       var data2 = {
 
-        next_due: data.accounts.next_due,
+        next_due: new Date(data.accounts.next_due).toLocaleString().split(' ')[0],
         companyno: data.company_number,
         coname: data.company_name,
-        next_made_up_to: data.accounts.next_made_up_to,
-        period_start_on: data.accounts.next_accounts.period_start_on,
+        next_made_up_to: new Date(data.accounts.next_made_up_to).toLocaleString().split(' ')[0],
+        period_start_on: new Date(data.accounts.next_accounts.period_start_on).toLocaleString().split(' ')[0],
 
 
       }
       res.render('email', { data2 });
-
-
 
     });
 
