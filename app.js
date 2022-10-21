@@ -301,14 +301,17 @@ app.get("/main", authenticateJWT, async (req, res) => {
                   // console.log(data);
 
                   var dataset = {
-                    next_due: new Date(data.accounts.next_due).toLocaleString('en-GB').split(',')[0],
+                    next_due: data.accounts.next_due,
+
                     companyno: data.company_number,
                     coname: data.company_name,
-                    next_made_up_to: new Date(data.accounts.next_made_up_to).toLocaleString('en-GB').split(',')[0],
-                    period_start_on: new Date(data.accounts.next_accounts.period_start_on).toLocaleString('en-GB').split(',')[0],
-                    confirmation_statement: new Date(data.confirmation_statement.next_due).toLocaleString('en-GB').split(',')[0],
+                    next_made_up_to: data.accounts.next_made_up_to,
+                    period_start_on: data.accounts.next_accounts.period_start_on,
+                    confirmation_statement:
+                      data.confirmation_statement.next_due,
+
                     status: data.company_status_detail,
-                    confirmation_statement_overdue: new Date(data.confirmation_statement.overdue).toLocaleString('en-GB').split(',')[0],
+                    confirmation_statement_overdue: data.confirmation_statement.overdue,
 
                   };
                   // console.log(dataset);
