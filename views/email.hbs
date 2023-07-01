@@ -77,29 +77,35 @@
         <label for="content">Content</label>
 
 
-        <textarea id="content" name="content" value="vinu" placeholder="Write something.." style="height:200px">
+        <textarea id="content" name="content" value="vinu" placeholder="Write something.." style="height:400px">
+Hi,
+
+{{data2.coname}} accounts for the period {{data2.period_start_on}} to {{data2.next_made_up_to}}          
           
-Hi Sir,
-  
-{{data2.coname}} accounts for the period {{data2.period_start_on}} to {{data2.next_made_up_to}}
+I am writing to request the following information for the period {{data2.period_start_on}} to {{data2.next_made_up_to}}:
 
-This is to remind about the information that we need to complete your company accounts and tax return. Please provide us with the necessary records and documents to ensure that we have enough time to meet the deadline. Company accounts are due on {{data2.next_due}} There is a penalty of upto £1,500 if failed to submit before deadline. 
+•	Financial Statements from all company bank accounts
+•	Sales, purchases and expnese invocies
+• List of debtors and creditors as at {{data2.next_made_up_to}}         
+•	Any other information which would enable you to prepare accounts in a more accurate manner.
 
-We require the following;
-
-1)    Company bank account statements from {{data2.period_start_on}} to {{data2.next_made_up_to}}
-2)    Cheque books if any for the period from {{data2.period_start_on}} to {{data2.next_made_up_to}}
-3)    Sales and  purchase invoices from {{data2.period_start_on}} to {{data2.next_made_up_to}}
-4)    Expenses bills and invoices from {{data2.period_start_on}} to {{data2.next_made_up_to}}
-5)    List of debtors and creditors as at {{data2.next_made_up_to}}
-6)    And any other information which would enable us to prepare accounts in a more accurate manner.
-
-If you require any assistance please do not hesitate to call us and I look forward to hearing from you soon.
+The company accounts submission deadline is on 26/02/2024 and there is a penalty of up to £1,500 if they are not submitted. I would therefore be grateful if you could provide me with the requested information as soon as possible.
 
 Kind regards,
-
-David and Brown / Castlefords Accountants
+          
 </textarea>
+
+        <button id="copyButton">Copy</button>
+
+<script>
+function copyText() {
+  var textArea = document.getElementById("content");
+  var text = textArea.value;
+  var clipboard = navigator.clipboard;
+  clipboard.writeText(text);
+}
+
+document.getElementById("copyButton").onclick = copyText;
 
         <input type="submit" value="Sent email">
 
