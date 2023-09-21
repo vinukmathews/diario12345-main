@@ -263,7 +263,9 @@ app.get("/saveaction", authenticateJWT, async function (req, res) {
   var a = req.query.number;
   var b = req.query.email;
 
-  var newvalues = { crn: a };
+  var newvalues = { crn: a 
+           "createdAt": new Date()
+                  };
   await database.collection(decoded).insertOne(newvalues, function (err, res) {
     if (err) throw err;
     console.log("1 document inserted");
